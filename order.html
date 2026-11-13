@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CONFIRM ORDER</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color:#a09dca ;">
+    <h1>COMPLETE YOUR ORDER</h1>
+    <hr class="line">
+
+    <img id="productimg" class="pro-img" src="">
+    <div id="productprice" class="pro-price"></div>
+    <section class="container">
+        <form id="form">
+            <div class="options">
+                <h3>choose a color</h3>
+                <label class="click"><input type="radio" name="color" value="pink">PINK</label>
+                <label class="click"><input type="radio" name="color" value="blue">BLUE</label>
+            </div> <br>
+            <div class="options">
+                <label class="click"><input type="radio" name="size" value="S">S</label>
+                <label class="click"><input type="radio" name="size" value="M">M</label>
+                <label class="click"><input type="radio" name="size" value="L">L</label>
+                <label class="click"><input type="radio" name="size" value="XL">XL</label>
+
+            </div>
+            <div class="info">
+                <h3>full name</h3>
+                <input type="text" id="name" placeholder="enter your name" required>
+
+                <h3>phone number</h3>
+                <input type="tel" id="number" placeholder="enter your number" required>
+
+                <h3>wilaya</h3>
+                <select id="wilaya" required onchange="updateshipp()">
+                    <option value="BATNA">BATNA</option>
+                    <option value="BISKRA">BISKRA</option>
+                    <option value="SETIF">SETIF</option>
+                    <option value="ALGEIRS">ALGEIRS</option>
+                    <option value="ORAN">ORAN</option>
+                </select>
+
+                <h3>delivery place</h3>
+
+                <select id="delivery" required onchange="updateshipp()">
+                    <option value="HOME">HOME</option>
+                    <option value="OFFICE">OFFICE</option>
+                </select>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>

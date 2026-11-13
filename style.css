@@ -35,7 +35,7 @@ img {
     font-size: large;
     font-weight: bold;
     color: #34295b;
-    margin-left: 63px;
+    margin-left: 55px;
 
 }
 
@@ -49,7 +49,7 @@ h2 {
 
 .btn {
     margin-top: 8px;
-    margin-left: 59px;
+    margin-left: 48px;
     padding-bottom: 5px;
     padding-left: 7px;
     padding-top: 5px;
@@ -108,4 +108,58 @@ body {
     gap: 10px;
     padding: 13px;
     max-width: 800px;
+}
+
+.container {
+    width: 100%;
+}
+
+.pro-img {
+
+    width: 100%;
+    height: auto;
+    /* يخلي الطول يتناسب أوتوماتيكياً مع عرض الشاشة */
+    max-height: 350px;
+    /* أقصى طول باش ما تجيش طويلة بزاف في التيليفون */
+    object-fit: contain;
+    /* تضمن بلي التصويرة تخرج كاملة بلا ما يتقص منها والو */
+    background-color: #f0f0f0;
+    /* لون خلفية خفيف يملأ الفراغات الجانبية إن وجدت */
+    display: block;
+}
+
+.click {
+    border: 1px solid #34295b;
+    border-radius: 3px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    margin-bottom: 15px;
+    color: #34295b;
+
+
+}
+
+.click:hover {
+    box-shadow: 0 0 4px;
+}
+
+h3 {
+    color: #34295b;
+    font-size: large;
+    margin-bottom: 5px;
+
+}
+
+input {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 25px;
+}
+
+select {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 25px;
 }
