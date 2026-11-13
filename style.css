@@ -21,12 +21,15 @@ h1 {
 
 img {
     width: 180px;
-    height: 200px;
+
+    height: 190px;
     border: 1px solid #34295b;
     border-radius: 3px;
     margin-bottom: 7px;
-    margin-left: 6px;
+
+
 }
+
 
 .price {
     font-size: large;
@@ -40,7 +43,7 @@ h2 {
     font-weight: bold;
     font-size: large;
     color: #34295b;
-    margin-left: 20px;
+    margin-left: 7px;
     margin-bottom: 4px;
 }
 
@@ -63,9 +66,9 @@ h2 {
 .grid-1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 13px;
-    padding: 13px;
-    max-width: 800px;
+    gap: 10px;
+    padding: 10px;
+    max-width: 700px;
 }
 
 .grid-2 {
@@ -83,4 +86,18 @@ h2 {
 
 .btn:active {
     opacity: 0.5;
+}
+
+/* منع أي عنصر من الخروج على حدود الشاشة أفقياً */
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* يقطع أي شيء يخرج أفقياً بالخطأ */
+
 }
