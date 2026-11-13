@@ -151,17 +151,45 @@ h3 {
     color: #34295b;
     font-size: large;
     margin-bottom: 5px;
-
+    margin-left: 0px;
 }
 
 input {
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding-bottom: 7px;
+    padding-top: 7px;
     padding-right: 70px;
 }
 
 select {
-    padding-bottom: 5px;
-    padding-top: 5px;
-    padding-right: 80px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    padding-right: 87px;
+}
+
+.delprice {
+    margin-bottom: 7px;
+    font-size: large;
+    font-weight: bold;
+    color: #34295b;
+    margin-top: 10px;
+}
+
+.sbm {
+    margin-top: 8px;
+    border: 1px solid #34295b;
+    border-radius: 3px;
+    padding-bottom: 13px;
+    padding-top: 13px;
+    padding-right: 86px;
+    padding-left: 90px;
+    font-weight: bold;
+    color: #34295b;
+}
+
+.sbm:hover {
+    opacity: 0.7;
+}
+
+.sbm:active {
+    opacity: 0.5;
 }
