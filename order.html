@@ -18,10 +18,13 @@
         <form id="form">
             <div class="options">
                 <h3>choose a color</h3>
-                <label class="click"><input type="radio" name="color" value="pink">PINK</label>
-                <label class="click"><input type="radio" name="color" value="blue">BLUE</label>
+                <label class="click"><input type="radio" name="color" value="pink" data-img="" checked
+                        onchange="changeColorImg(this)">PINK</label>
+                <label class="click"><input type="radio" name="color" value="blue" data-img="" checked
+                        onchange="changeColorImg(this)">BLUE</label>
             </div> <br>
             <div class="options">
+                <h3>choose a size</h3>
                 <label class="click"><input type="radio" name="size" value="S">S</label>
                 <label class="click"><input type="radio" name="size" value="M">M</label>
                 <label class="click"><input type="radio" name="size" value="L">L</label>
@@ -37,6 +40,8 @@
 
                 <h3>wilaya</h3>
                 <select id="wilaya" required onchange="updateshipp()">
+                    <option value="wilaya">wilaya</option>
+
                     <option value="BATNA">BATNA</option>
                     <option value="BISKRA">BISKRA</option>
                     <option value="SETIF">SETIF</option>
@@ -47,13 +52,15 @@
                 <h3>delivery place</h3>
 
                 <select id="delivery" required onchange="updateshipp()">
+                    <option value="DELIVERY PLACE">DELIVERY PLCE</option>
+
                     <option value="HOME">HOME</option>
                     <option value="OFFICE">OFFICE</option>
                 </select>
 
 
                 <div class="delprice">
-                    <div>delivery price : <strong id="shipprice">0 DA</strong></div>
+                    <div>delivery price : <strong id="shippPrice">0 DA</strong></div>
                     <div>total price : <strong id="totalprice">0 DA</strong>
                     </div>
                 </div>
@@ -70,44 +77,65 @@
 
         document.getElementById('productimg').src = imgSrc;
         document.getElementById('productprice').innerText = basePrice + " DA";
-        document.getElementById('totalPrice').innerText = basePrice + " DA";
+        document.getElementById('totalprice').innerText = basePrice + " DA";
 
         const rates = {
-            oran: {home: 700, desk: 600},
-            batna: {home: 600, desk: 500},
-            setif: {home: 700, desk: 600},
-            biskra: {home: 600, desk: 500},
+
+            ORAN: {HOME: 700, OFFICE: 600},
+            BATNA: {HOME: 600, OFFICE: 500},
+            SETIF: {HOME: 700, OFFICE: 600},
+            ALGEIRS: {HOME: 600, OFFICE: 500},
+            BISKRA: {HOME: 600, OFFICE: 500},
         };
 
-        function updateShipp() {
+        function updateshipp() {
             const wilaya = document.getElementById('wilaya').value;
             const deliveryType = document.getElementById('delivery').value;
 
             if (!wilaya) {
                 document.getElementById('shippPrice').innerText = "0 DA";
-                document.getElementById('totalPrice').innerText = basePrice + " DA";
+                document.getElementById('totalprice').innerText = basePrice + " DA";
                 return;
             }
 
             const shippCost = rates[wilaya][deliveryType];
-            const total = baseprice + shippCost;
+            const total = basePrice + shippCost;
 
             document.getElementById('shippPrice').innerText = shippCost + " DA";
-            document.getElementById('totalPrice').innerText = total + " DA";
+            document.getElementById('totalprice').innerText = total + " DA";
         }
 
-        document.getElementById('orderForm').addEventListener('submit', function (e) {
+        document.getElementById('form').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const color = document.querySelector('input[name="color"]:checked').value;
             const size = document.querySelector('input[name="size"]:checked').value;
-            const fullname = document.getElementById('fullname').value;
-            const phone = document.getElementById('phone').value;
+            const fullname = document.getElementById('name').value;
+            const phone = document.getElementById('number').value;
             const wilaya = document.getElementById('wilaya').options[document.getElementById('wilaya').selectedIndex].text;
             const delivery = document.getElementById('delivery').options[document.getElementById('delivery').selectedIndex].text;
-            const totalPrice = document.getElementById('totalPrice').innerText;
+            const totalPrice = document.getElementById('totalprice').innerText;
             const productimgSrc = document.getElementById('productimg').src;
         });
+        // 1. نقراو التصاور من الرابط
+        const pinkImg = urlParams.get('pink');
+        const blueImg = urlParams.get('blue');
+
+        // 2. إذا كانت متوفرة، نربطوها بأزرار الألوان
+        if (pinkImg) {
+            document.querySelector('input[value="pink"]').setAttribute('data-img', pinkImg);
+        }
+        if (blueImg) {
+            document.querySelector('input[value="blue"]').setAttribute('data-img', blueImg);
+        }
+
+        // 3. الدالة اللي تبدل الصورة كي يضغط الزبون على اللون
+        function changeColorImg(radioBtn) {
+            const newImg = radioBtn.getAttribute('data-img');
+            if (newImg) {
+                document.getElementById('productimg').src = newImg;
+            }
+        }
     </script>
 </body>
 
