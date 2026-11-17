@@ -131,17 +131,27 @@ body {
 }
 
 .click {
-    border: 1px solid #34295b;
-    border-radius: 3px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-right: 5px;
-    margin-bottom: 15px;
+    /* شكل الزر العادي */
+
+    display: inline-block;
+    border: 2px solid #34295b;
+    border-radius: 6px;
+    padding: 8px 15px;
+    margin: 5px;
     color: #34295b;
-
-
+    background-color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
 }
+
+/* شكل الزر كي يكون مختار (Active) */
+.options input[type="radio"]:checked+.click,
+.options label:has(input[type="radio"]:checked) {
+    background-color: #34295b !important;
+    color: #fff !important;
+}
+
 
 .click:hover {
     box-shadow: 0 0 4px;
